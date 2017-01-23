@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { Route, Router, hashHistory, IndexRoute } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 
-import Hobby from 'Hobby';
-
+import routes from './routes';
 import { addFeature } from './actions';
 import { configure } from './store/store';
 
@@ -18,15 +17,7 @@ const store = configure();
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hobby />
+    <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app')
 );
-
-store.dispatch(addFeature('React, ReactDOM, React Router'));
-store.dispatch(addFeature('Redux, React-Redux, Redux-thunk'));
-store.dispatch(addFeature('Bootstrap V4 alpha~6 customizable Sass'));
-store.dispatch(addFeature('FontAwesome 4.7'));
-store.dispatch(addFeature('PostCSS autoprefixer plugin'));
-store.dispatch(addFeature('react, ES6 and stage-0 babel presets'));
-store.dispatch(addFeature('ESLint with RallyCoding rules'));

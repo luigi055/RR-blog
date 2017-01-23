@@ -1,15 +1,10 @@
-let nextFeature = 1;
-export const featureReducer = (state = [], action) => {
-  switch (action.type) {
-    case 'NEW_FEATURE':
-      return [
-        ...state,
-        {
-          id: nextFeature++,
-          feature: action.feature
-        }
-      ];
-    default:
-      return state;
-  }
-};
+import { combineReducers } from 'redux';
+import PostsReducer from './PostsReducer';
+import { reducer as formReducer } from 'redux-form';
+
+const rootReducer = combineReducers({
+  posts: PostsReducer,
+  form: formReducer
+});
+
+export default rootReducer;
