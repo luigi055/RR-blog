@@ -32,7 +32,7 @@ class PostsNew extends Component {
 
   render() {
     const { fields: { title, categories, content }, handleSubmit } = this.props;
-    console.log(title);
+    // console.log(title);
     return (
       <form onSubmit={handleSubmit(this.onSubmit)}>
         <h3>Create a new Post</h3>
